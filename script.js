@@ -68,7 +68,7 @@ function showResults(steps) {
     const resultsDiv = document.getElementById('results');
 
     // Tyhjennetään edelliset tulokset
-    resultsDiv.innerHTML = '<h3>Liikkuminen kannattaa! Nämä olet ansainnut:</h3>';
+    resultsDiv.innerHTML = '<h3>Hyvin toimittu! Nämä olet ansainnut:</h3>';
 
     // Lasketaan poltetut kalorit ja juoman määrä
     const caloriesBurned = steps * caloriesPerStep;
