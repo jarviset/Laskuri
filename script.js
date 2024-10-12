@@ -85,7 +85,7 @@ function showResults(steps) {
 
             // Soitetaan tölkin avausääni
             playSound();
-        }, i * 2500); // 2,5 sekunnin viive per täysi tölkki
+        }, i * 1200); // 2,5 sekunnin viive per täysi tölkki
     }
 
     // Jos on ansaittu puolikas juoma, näytetään se 2,5 sekunnin viiveen jälkeen
@@ -97,7 +97,7 @@ function showResults(steps) {
 
             // Soitetaan tölkin avausääni puolikkaalle tölkille
             playSound();
-        }, drinksEarned * 2500); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
+        }, drinksEarned * 1200); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
     }
 }
 
