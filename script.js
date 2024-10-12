@@ -64,7 +64,7 @@ function showResults(steps) {
     const resultsDiv = document.getElementById('results');
 
     // Tyhjennetään edelliset tulokset
-    resultsDiv.innerHTML = '<h3>Liikkuminen kannattaa! Nämä olet ansainnut:</h3>';
+    resultsDiv.innerHTML = '<h3>Nämä olet ansainnut:</h3>';
 
     // Lasketaan poltetut kalorit ja juoman määrä
     const caloriesBurned = steps * caloriesPerStep;
@@ -81,10 +81,10 @@ function showResults(steps) {
 
             // Soitetaan tölkin avausääni
             playSound();
-        }, i * 2500); // 2,5 sekunnin viive per täysi tölkki
+        }, i * 2300); // 2,3 sekunnin viive per täysi tölkki
     }
 
-    // Jos on ansaittu puolikas juoma, näytetään se 2,5 sekunnin viiveen jälkeen
+    // Jos on ansaittu puolikas juoma, näytetään se 2,3 sekunnin viiveen jälkeen
     if (hasHalfDrink) {
         setTimeout(() => {
             const halfImg = document.createElement('img');
@@ -93,7 +93,7 @@ function showResults(steps) {
 
             // Soitetaan tölkin avausääni puolikkaalle tölkille
             playSound();
-        }, drinksEarned * 2500); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
+        }, drinksEarned * 2300); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
     }
 }
 
