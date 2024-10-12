@@ -12,7 +12,7 @@ body {
 
 .container {
     max-width: 400px;
-    margin: 30px auto;
+    margin: 50px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.1); /* Läpinäkyvä tausta */
     border-radius: 10px;
@@ -92,14 +92,4 @@ img {
     width: 60px;
     height: auto;
     margin-bottom: 5px;
-}
-
-#vichy-question {
-    margin-top: 20px;
-    text-align: center;
-}
-
-#vauva-image {
-    width: 150px;
-    height: auto;
 }
