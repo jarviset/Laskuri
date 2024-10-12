@@ -71,7 +71,7 @@ button:hover {
 }
 
 img {
-    width: calc(33.33% - 20px); /* Tölkin leveys on noin kolmasosa rivistä */
+    width: calc(33.33% - 10px); /* Tölkin leveys on noin kolmasosa rivistä */
     max-width: 100px; /* Maksimikoko tölkille */
     height: auto; /* Korkeus mukautuu */
     margin: 5px;
