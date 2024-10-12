@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askelpeli</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kerro tämän päivän askeleet</h1>
+
+        <!-- Vetopalkki askelmäärän valintaan -->
+        <label for="steps-range">Askeleet: <span id="steps-value">15000</span></label>
+        <input type="range" id="steps-range" min="0" max="30000" value="15000" step="100" />
+
+        <button id="calculate-button">Laske</button>
+
+        <div id="drink-selection" style="display: none;">
+            <h2>Valitse juoma</h2>
+            <div class="drinks">
+                <div class="drink-item">
+                    <img src="lonkero.png" id="lonkero" alt="Lonkero" />
+                </div>
+                <div class="drink-item">
+                    <img src="lonkero_light.png" id="lonkero_light" alt="Lonkero Light" />
+                </div>
+                <div class="drink-item">
+                    <img src="sandels.png" id="sandels" alt="Sandels" />
+                </div>
+                <div class="drink-item">
+                    <img src="crowmoor.png" id="crowmoor" alt="Crowmoor" />
+                </div>
+                <div class="drink-item">
+                    <img src="vischy.png" id="vischy" alt="Vichy" />
+                </div>
+            </div>
+        </div>
+
+        <div id="results"></div>
+
+        <div id="vichy-question" style="display: none;">
+            <img src="vauva.png" alt="Vauva" id="vauva-image" />
+            <p>Haluatko siirtyä Vauva.fi-sivustolle?</p>
+            <button id="yes-button">Kyllä</button>
+            <button id="no-button">Ei</button>
+        </div>
+
+        <!-- Äänielementti tölkin avausäänelle -->
+        <audio id="can-open-sound" src="canopen.wav"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

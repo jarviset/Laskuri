@@ -1,0 +1,105 @@
+/* Taustakuva */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('harmaa.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: white;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Läpinäkyvä tausta */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #003366; /* Tummansininen teksti */
+    font-size: 24px;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+h2 {
+    color: #003366; /* Tummansininen teksti */
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 20px 0;
+}
+
+label {
+    font-size: 18px;
+    color: #003366;
+}
+
+#steps-value {
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: transparent; /* Läpinäkyvä tausta */
+    color: #003366; /* Sininen teksti */
+    border: 2px solid #003366; /* Siniset reunaviivat */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #003366;
+    color: white; /* Vaihda valkoiseksi hover-tilassa */
+}
+
+#results {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Tölkit järjestetään riveihin */
+    justify-content: center; /* Keskitetään tölkit */
+    align-items: flex-end; /* Alareunan tasaus */
+}
+
+img {
+    width: calc(33.33% - 10px); /* Tölkin leveys on noin kolmasosa rivistä */
+    max-width: 100px; /* Maksimikoko tölkille */
+    height: auto; /* Korkeus mukautuu */
+    margin: 5px;
+    cursor: pointer;
+}
+
+.drinks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.drink-item {
+    text-align: center;
+}
+
+.drink-item img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+#vichy-question {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#vauva-image {
+    width: 150px;
+    height: auto;
+}
