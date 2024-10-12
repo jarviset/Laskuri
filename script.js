@@ -5,8 +5,7 @@ const drinks = {
     lonkero: { full: 'lonkero.png', half: 'lonkero_puolikas.png', calories: 182 },
     lonkero_light: { full: 'lonkero_light.png', half: 'lonkero_light_puolikas.png', calories: 109 },
     sandels: { full: 'sandels.png', half: 'sandels_puolikas.png', calories: 129 },
-    crowmoor: { full: 'crowmoor.png', half: 'crowmoor_puolikas.png', calories: 149 },
-    vischy: { full: 'vauva.png', half: 'vauva.png', calories: 0 } // Vichy käyttää vauva.png
+    crowmoor: { full: 'crowmoor.png', half: 'crowmoor_puolikas.png', calories: 149 }
 };
 
 // Alustetaan valitun juoman kuvat ja kalorit
@@ -16,13 +15,17 @@ let selectedCalories = drinks.lonkero.calories;
 // Vetopalkin arvo päivittyy reaaliajassa
 const stepsRange = document.getElementById('steps-range');
 const stepsValue = document.getElementById('steps-value');
+const mainButton = document.getElementById('main-button');
 
 stepsRange.addEventListener('input', () => {
     stepsValue.textContent = stepsRange.value;
 });
 
-// Näytetään juomavalikko vasta, kun käyttäjä syöttää askeleet
-document.getElementById('calculate-button').addEventListener('click', () => {
+// Aluksi käytetään nappia "Laske" toiminnolla
+mainButton.addEventListener('click', calculateSteps);
+
+// Funktio askeleiden laskemiseen
+function calculateSteps() {
     const steps = parseInt(stepsRange.value);
 
     if (isNaN(steps) || steps <= 0) {
@@ -30,31 +33,32 @@ document.getElementById('calculate-button').addEventListener('click', () => {
         return;
     }
 
-    // Näytetään juomavalinta
+    // Näytetään juomavalinta ja piilotetaan tulokset
     document.getElementById('drink-selection').style.display = 'block';
-});
+    document.getElementById('results').innerHTML = '';
+
+    // Vaihdetaan napin toiminto "Vaihda juomaa" -tilaan
+    mainButton.removeEventListener('click', calculateSteps);
+    mainButton.addEventListener('click', showDrinkSelection);
+    mainButton.textContent = 'Vaihda juomaa';
+}
 
 // Kun juoma valitaan
 document.querySelectorAll('.drinks img').forEach(img => {
     img.addEventListener('click', (e) => {
         const selectedId = e.target.id;
 
-        // Tyhjennetään edelliset tulokset
-        document.getElementById('results').innerHTML = '';
+        // Piilotetaan juomavalinta
+        document.getElementById('drink-selection').style.display = 'none';
 
-        // Jos valitaan Vichy, näytetään vauva.fi-kysymys ja tyhjennetään tölkit
-        if (selectedId === 'vischy') {
-            document.getElementById('vichy-question').style.display = 'block';
-            document.getElementById('drink-selection').style.display = 'none';
-        } else {
-            selectedDrink = drinks[selectedId];
-            selectedCalories = drinks[selectedId].calories;
+        // Päivitetään valittu juoma ja kalorit
+        selectedDrink = drinks[selectedId];
+        selectedCalories = drinks[selectedId].calories;
 
-            // Lasketaan uudelleen askeleiden perusteella ja näytetään tulokset
-            const steps = parseInt(stepsRange.value);
-            if (!isNaN(steps) && steps > 0) {
-                showResults(steps);
-            }
+        // Näytetään tulokset
+        const steps = parseInt(stepsRange.value);
+        if (!isNaN(steps) && steps > 0) {
+            showResults(steps);
         }
     });
 });
@@ -64,7 +68,7 @@ function showResults(steps) {
     const resultsDiv = document.getElementById('results');
 
     // Tyhjennetään edelliset tulokset
-    resultsDiv.innerHTML = '<h3>Hieno suoritus! Nämä olet ansainnut:</h3>';
+    resultsDiv.innerHTML = '<h3>Liikkuminen kannattaa! Nämä olet ansainnut:</h3>';
 
     // Lasketaan poltetut kalorit ja juoman määrä
     const caloriesBurned = steps * caloriesPerStep;
@@ -97,15 +101,12 @@ function showResults(steps) {
     }
 }
 
-// Vichy-valinnan toiminnot
-document.getElementById('yes-button').addEventListener('click', () => {
-    window.location.href = 'https://www.vauva.fi';
-});
-
-document.getElementById('no-button').addEventListener('click', () => {
-    document.getElementById('vichy-question').style.display = 'none';
+// Funktio "Vaihda juomaa" -tilaan siirtymiseen
+function showDrinkSelection() {
+    // Tyhjennetään tulokset ja näytetään juomavalinta uudelleen
+    document.getElementById('results').innerHTML = '';
     document.getElementById('drink-selection').style.display = 'block';
-});
+}
 
 // Funktio äänen toistamiseen
 function playSound() {
