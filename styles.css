@@ -20,13 +20,13 @@ body {
 }
 
 h1 {
-    color: #003366; /* Tummansininen teksti */
+    color: #ffffff; /* Tummansininen teksti */
     font-size: 24px;
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
 }
 
 h2 {
-    color: #003366; /* Tummansininen teksti */
+    color: #ffffff; /* Tummansininen teksti */
     font-size: 20px;
     margin-top: 20px;
 }
@@ -38,7 +38,7 @@ input[type="range"] {
 
 label {
     font-size: 18px;
-    color: #003366;
+    color: #ffffff;
 }
 
 #steps-value {
@@ -48,7 +48,7 @@ label {
 button {
     padding: 10px 20px;
     background-color: transparent; /* Läpinäkyvä tausta */
-    color: #003366; /* Sininen teksti */
+    color: #ffffff; /* Sininen teksti */
     border: 2px solid #003366; /* Siniset reunaviivat */
     border-radius: 5px;
     cursor: pointer;
