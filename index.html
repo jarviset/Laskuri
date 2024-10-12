@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askelpeli</title>
+    <title>U15 Faijojen askelmittari</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,10 +11,11 @@
         <h1>Päivän askeleet</h1>
 
         <!-- Vetopalkki askelmäärän valintaan -->
-        <label for="steps-range">Askeleet: <span id="steps-value">10000</span></label>
-        <input type="range" id="steps-range" min="0" max="30000" value="10000" step="200" />
+        <label for="steps-range">Askeleet: <span id="steps-value">15000</span></label>
+        <input type="range" id="steps-range" min="0" max="30000" value="15000" step="100" />
 
-        <button id="calculate-button">Laske</button>
+        <!-- Yksi nappi, joka vaihtaa toimintoa valinnan jälkeen -->
+        <button id="main-button">Laske</button>
 
         <div id="drink-selection" style="display: none;">
             <h2>Valitse juoma</h2>
@@ -31,20 +32,10 @@
                 <div class="drink-item">
                     <img src="crowmoor.png" id="crowmoor" alt="Crowmoor" />
                 </div>
-                <div class="drink-item">
-                    <img src="vischy.png" id="vischy" alt="Vichy" />
-                </div>
             </div>
         </div>
 
         <div id="results"></div>
-
-        <div id="vichy-question" style="display: none;">
-            <img src="vauva.png" alt="Vauva" id="vauva-image" />
-            <p>Haluatko siirtyä Vauva.fi-sivustolle?</p>
-            <button id="yes-button">Kyllä</button>
-            <button id="no-button">Ei</button>
-        </div>
 
         <!-- Äänielementti tölkin avausäänelle -->
         <audio id="can-open-sound" src="canopen.wav"></audio>
