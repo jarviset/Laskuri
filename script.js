@@ -81,10 +81,10 @@ function showResults(steps) {
 
             // Soitetaan tölkin avausääni
             playSound();
-        }, i * 2300); // 2,3 sekunnin viive per täysi tölkki
+        }, i * 2500); // 2,5 sekunnin viive per täysi tölkki
     }
 
-    // Jos on ansaittu puolikas juoma, näytetään se 2,3 sekunnin viiveen jälkeen
+    // Jos on ansaittu puolikas juoma, näytetään se 2,5 sekunnin viiveen jälkeen
     if (hasHalfDrink) {
         setTimeout(() => {
             const halfImg = document.createElement('img');
@@ -93,7 +93,7 @@ function showResults(steps) {
 
             // Soitetaan tölkin avausääni puolikkaalle tölkille
             playSound();
-        }, drinksEarned * 2300); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
+        }, drinksEarned * 2500); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
     }
 }
 
