@@ -2,10 +2,10 @@ const caloriesPerStep = 0.05; // Oletetaan, että yksi askel kuluttaa 0,05 kalor
 
 // Juoma-kuvat ja niiden kalorimäärät
 const drinks = {
-    lonkero: { full: 'lonkero.png', half: 'lonkero_puolikas.png', calories: 182 },
-    lonkero_light: { full: 'lonkero_light.png', half: 'lonkero_light_puolikas.png', calories: 109 },
-    sandels: { full: 'sandels.png', half: 'sandels_puolikas.png', calories: 129 },
-    crowmoor: { full: 'crowmoor.png', half: 'crowmoor_puolikas.png', calories: 149 }
+    lonkero: { full: 'lonkero.png', calories: 182 },
+    lonkero_light: { full: 'lonkero_light.png', calories: 109 },
+    sandels: { full: 'sandels.png', calories: 129 },
+    crowmoor: { full: 'crowmoor.png', calories: 149 }
 };
 
 // Alustetaan valitun juoman kuvat ja kalorit
@@ -68,13 +68,11 @@ function showResults(steps) {
     const resultsDiv = document.getElementById('results');
 
     // Tyhjennetään edelliset tulokset
-    resultsDiv.innerHTML = '<h3>Hyvin toimittu! Nämä olet ansainnut:</h3>';
+    resultsDiv.innerHTML = '<h3>Liikkuminen kannattaa! Nämä olet ansainnut:</h3>';
 
     // Lasketaan poltetut kalorit ja juoman määrä
     const caloriesBurned = steps * caloriesPerStep;
-    const drinksEarned = Math.floor(caloriesBurned / selectedCalories);
-    const remainingCalories = caloriesBurned % selectedCalories;
-    const hasHalfDrink = remainingCalories >= selectedCalories / 2;
+    const drinksEarned = Math.floor(caloriesBurned / selectedCalories); // Lasketaan vain kokonaiset tölkit
 
     // Näytetään juomatölkit 2,5 sekunnin välein ja soitetaan ääni
     for (let i = 0; i < drinksEarned; i++) {
@@ -86,18 +84,6 @@ function showResults(steps) {
             // Soitetaan tölkin avausääni
             playSound();
         }, i * 1200); // 2,5 sekunnin viive per täysi tölkki
-    }
-
-    // Jos on ansaittu puolikas juoma, näytetään se 2,5 sekunnin viiveen jälkeen
-    if (hasHalfDrink) {
-        setTimeout(() => {
-            const halfImg = document.createElement('img');
-            halfImg.src = selectedDrink.half;
-            resultsDiv.appendChild(halfImg);
-
-            // Soitetaan tölkin avausääni puolikkaalle tölkille
-            playSound();
-        }, drinksEarned * 1200); // 2,5 sekunnin viive viimeisen täydellisen tölkin jälkeen
     }
 }
 
